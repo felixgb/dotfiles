@@ -6,7 +6,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'derekwyatt/vim-scala'
-" Plug 'posva/vim-vue'
 " Plug 'peitalin/vim-jsx-typescript'
 " Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -29,7 +28,6 @@ set timeoutlen=1000 ttimeoutlen=0
 set ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 
-" parcel rebuild correctly
 set backupcopy=yes
 
 set nowrap
@@ -65,7 +63,6 @@ nnoremap <C-c> :cexpr system('ag --vimgrep ' . expand("<cword>"))<CR>
 nnoremap q] :cnext<CR>
 nnoremap q[ :cprev<CR>
 
-" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -74,12 +71,3 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> ac <Plug>(coc-codeaction)
 
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-nnoremap <silent> K :call <SID>show_documentation()<CR>
