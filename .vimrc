@@ -1,7 +1,6 @@
 filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
-Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -13,13 +12,8 @@ call plug#end()
 
 " let g:coc_global_extensions = ['coc-tsserver']
 
-syntax on
-
-let g:jellybeans_overrides = {
-      \    'background': { '256ctermbg': 'none' },
-      \}
-
-colorscheme jellybeans
+syntax off
+colorscheme industry
 
 au BufRead,BufNewFile *.sbt set filetype=scala
 
@@ -69,5 +63,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nmap <silent> ac <Plug>(coc-codeaction)
+
+inoremap <silent> <expr> <C-j> coc#refresh()
 
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
