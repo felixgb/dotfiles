@@ -2,9 +2,9 @@ filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'derekwyatt/vim-scala'
+Plug 'arcticicestudio/nord-vim'
 " Plug 'peitalin/vim-jsx-typescript'
 " Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -12,8 +12,7 @@ call plug#end()
 
 " let g:coc_global_extensions = ['coc-tsserver']
 
-syntax off
-colorscheme industry
+syntax on
 
 au BufRead,BufNewFile *.sbt set filetype=scala
 
@@ -51,8 +50,9 @@ let g:netrw_banner = 0
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 nnoremap <C-f> :grep 
-nnoremap <C-p> :FZF<CR>
-nnoremap <C-c> :cexpr system('ag --vimgrep ' . expand("<cword>"))<CR>
+nnoremap <F10> :Gstatus<CR>
+nnoremap <F11> :Tags!<CR>
+nnoremap <F12> :Files!<CR>
 
 nnoremap q] :cnext<CR>
 nnoremap q[ :cprev<CR>
@@ -63,7 +63,5 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nmap <silent> ac <Plug>(coc-codeaction)
-
-inoremap <silent> <expr> <C-j> coc#refresh()
 
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
