@@ -29,7 +29,7 @@ autoload -U colors && colors
 
 export TERM=screen-256color
 
-PS1="%{$fg[cyan]%}[%{$reset_color%}%{$fg[white]%}%n@%M%{$reset_color%}:%~%{$fg[cyan]%}]%{$reset_color%}$ "
+PS1="%{$fg[magenta]%}[%{$reset_color%}%{$fg[white]%}%n@dev%{$reset_color%}:%~%{$fg[magenta]%}]%{$reset_color%}$ "
 
 disable r
 
@@ -49,4 +49,8 @@ function c() {
     ou="$ou \$$row \" \""
   done
   eval "awk '{ print$ou }'"
+}
+
+function replace() {
+  ag -l "$1" | xargs sed -i "s/$1/$2/g"
 }

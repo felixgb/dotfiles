@@ -4,22 +4,17 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug 'derekwyatt/vim-scala'
-Plug 'arcticicestudio/nord-vim'
-" Plug 'peitalin/vim-jsx-typescript'
-" Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 
-" let g:coc_global_extensions = ['coc-tsserver']
-
 syntax on
+colorscheme industry
 
 au BufRead,BufNewFile *.sbt set filetype=scala
 
 set timeoutlen=1000 ttimeoutlen=0
 
 set ts=2 sts=2 sw=2
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
 
 set backupcopy=yes
 
@@ -37,8 +32,6 @@ set complete+=i,w,.
 set completeopt=menuone,menu
 set wildmode=longest,list,full
 
-set tags=./tags;/,dep_tags
-
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
@@ -50,6 +43,7 @@ let g:netrw_banner = 0
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 nnoremap <C-f> :grep 
+nnoremap <C-c> :!echo expand("<cword>")<CR>
 nnoremap <F10> :Gstatus<CR>
 nnoremap <F11> :Tags!<CR>
 nnoremap <F12> :Files!<CR>
