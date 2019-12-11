@@ -43,7 +43,7 @@ let g:netrw_banner = 0
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 nnoremap <C-f> :grep 
-nnoremap <C-c> :!echo expand("<cword>")<CR>
+nnoremap <C-c> :cexpr system('ag --vimgrep ' . expand("<cword>"))<CR>
 nnoremap <F10> :Gstatus<CR>
 nnoremap <F11> :Tags!<CR>
 nnoremap <F12> :Files!<CR>
