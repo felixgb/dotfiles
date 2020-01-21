@@ -23,7 +23,7 @@ alias rm='rm -I'
 
 export VISUAL='vim'
 export PATH=$PATH:$HOME/.local/bin/
-export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -Xmx2G"
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -Xmx2G -Xss2m"
 
 autoload -U colors && colors
 

@@ -8,6 +8,5 @@
 [color "status"]
   added = magenta
   changed = cyan
-  untracked = cyan
+  untracked = magenta
   deleted = cyan
-

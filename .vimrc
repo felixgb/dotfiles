@@ -8,7 +8,9 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 
 syntax on
-colorscheme industry
+colorscheme shblah
+
+highlight Pmenu ctermbg=gray
 
 au BufRead,BufNewFile *.sbt set filetype=scala
 
@@ -44,6 +46,15 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 nnoremap <C-f> :grep 
 nnoremap <C-c> :cexpr system('ag --vimgrep ' . expand("<cword>"))<CR>
+function SearchAndReplace()
+  let w = expand("<cword>")
+  cexpr system('ag --vimgrep ' . w)
+  let r = input("replace " . w . " with: ")
+  execute 'cfdo s!' . w . '!' . r . '!gc | update'
+endfunction
+
+nnoremap <F8> :call SearchAndReplace()<CR>
+nnoremap <F9> :SortScalaImports<CR>
 nnoremap <F10> :Gstatus<CR>
 nnoremap <F11> :Tags!<CR>
 nnoremap <F12> :Files!<CR>
