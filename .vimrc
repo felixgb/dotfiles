@@ -4,11 +4,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug 'derekwyatt/vim-scala'
+Plug 'reasonml-editor/vim-reason-plus'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 
 syntax on
-colorscheme shblah
+colorscheme desert
 
 highlight Pmenu ctermbg=gray
 
