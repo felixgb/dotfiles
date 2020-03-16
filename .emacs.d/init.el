@@ -75,6 +75,8 @@
   :after lsp-mode)
 
 (use-package haskell-mode
+  :config
+  (custom-set-variables '(haskell-process-type 'stack-ghci))
   :ensure t)
 
 (use-package scala-mode
